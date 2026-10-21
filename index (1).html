@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14206B">
+<title>توزيع القاعات – المرحلة الأولى 2027 | مكتب الأولمبياد العلمي السوري – درعا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#14206B; --navy2:#1E2F8F; --navy-soft:#E8EBF7;
+  --gold:#F2B705; --green:#2E9E5B; --red:#C8343B;
+  --bg:#F4F6FB; --card:#FFFFFF; --text:#1B2140; --muted:#5F6787; --line:#DDE2F0;
+  --shadow:0 6px 24px rgba(20,32,107,.10);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit}
+.topbar{background:var(--navy);color:#fff;font-size:.85rem;text-align:center;padding:6px 12px}
+header.site{background:#fff;border-bottom:3px solid var(--gold);box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.brand .logos{display:flex;align-items:center;gap:12px}
+.brand img{height:56px;width:auto;object-fit:contain}
+.brand .title{line-height:1.3}
+.brand .title b{display:block;color:var(--navy);font-size:1.15rem;font-weight:800}
+.brand .title span{color:var(--muted);font-size:.9rem}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:28px 0 70px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -10% -60px -10%;height:120px;background:var(--bg);border-radius:50% 50% 0 0}
+.hero h1{margin:0 0 6px;font-size:1.6rem;font-weight:800}
+.hero p{margin:0;opacity:.9}
+.search-box{position:relative;z-index:2;margin-top:-48px}
+.search{display:flex;align-items:center;gap:10px;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:10px 14px;border:2px solid transparent;transition:.2s}
+.search:focus-within{border-color:var(--gold)}
+.search svg{flex:none;color:var(--navy)}
+.search input{flex:1;border:0;outline:0;font:inherit;font-size:1.05rem;padding:8px 0;background:transparent;color:var(--text)}
+.search button{border:0;background:var(--navy-soft);color:var(--navy);font:inherit;font-weight:700;border-radius:10px;padding:6px 12px;cursor:pointer}
+.hint{color:var(--muted);font-size:.85rem;margin:8px 4px 0}
+main{padding:24px 0 40px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:22px;cursor:pointer;border:2px solid transparent;transition:.2s;text-align:right;font:inherit;color:inherit}
+.card:hover,.card:focus-visible{transform:translateY(-3px);border-color:var(--gold);outline:0}
+.card .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--navy-soft);color:var(--navy);font-size:1.6rem;margin-bottom:12px}
+.card h3{margin:0 0 4px;color:var(--navy);font-size:1.2rem}
+.card p{margin:0;color:var(--muted);font-size:.92rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.stat{background:#fff;border-radius:14px;padding:14px;text-align:center;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:1.5rem;color:var(--navy)}
+.stat span{color:var(--muted);font-size:.85rem}
+.view-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.back{border:0;background:#fff;box-shadow:var(--shadow);border-radius:10px;padding:8px 14px;font:inherit;font-weight:700;color:var(--navy);cursor:pointer}
+.view-head h2{margin:0;color:var(--navy);font-size:1.3rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-weight:600;cursor:pointer;color:var(--text)}
+.chip small{color:var(--muted);margin-inline-start:4px}
+.chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.chip.on small{color:#cfd5f5}
+.section{background:#fff;border-radius:16px;box-shadow:var(--shadow);margin-bottom:16px;overflow:hidden}
+.section summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:700;color:var(--navy);background:var(--navy-soft)}
+.section summary::-webkit-details-marker{display:none}
+.section summary .cnt{background:var(--navy);color:#fff;border-radius:999px;padding:2px 10px;font-size:.85rem}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--navy);color:#fff;font-weight:700;position:sticky;top:0}
+tbody tr:nth-child(even){background:#FAFBFE}
+tbody tr:hover{background:#FFF8E1}
+td.num{font-family:ui-monospace,Consolas,monospace;font-weight:700;color:var(--navy);direction:ltr;text-align:right}
+td.i{color:var(--muted);width:40px}
+.tag{display:inline-block;padding:1px 10px;border-radius:999px;font-size:.85rem;font-weight:700}
+.results{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.res{background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:16px;border-inline-start:5px solid var(--gold)}
+.res h4{margin:0 0 10px;font-size:1.1rem;color:var(--navy)}
+.res dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.93rem}
+.res dt{color:var(--muted)}
+.res dd{margin:0;font-weight:700}
+.res .bignum{font-family:ui-monospace,Consolas,monospace;font-size:1.05rem;color:var(--navy)}
+mark{background:#FFE58A;border-radius:3px;padding:0 2px}
+.empty{background:#fff;border-radius:16px;padding:30px;text-align:center;color:var(--muted);box-shadow:var(--shadow)}
+footer{background:var(--navy);color:#dfe3fb;text-align:center;padding:20px 16px;font-size:.88rem}
+footer b{color:#fff}
+.hidden{display:none!important}
+@media (max-width:760px){
+  .cards{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .brand img{height:44px}
+  .brand .title b{font-size:1rem}
+  .hero h1{font-size:1.25rem}
+  th,td{padding:8px 8px;font-size:.88rem}
+}
+@media print{
+  .topbar,.hero,.search-box,.back,.chips,footer{display:none!important}
+  body{background:#fff}.section,.res{box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">اختبارات المرحلة الأولى | الأولمبياد العلمي السوري 2027 | محافظة درعا</div>
+
+<header class="site">
+  <div class="wrap brand">
+    <div class="logos">
+      <img src="https://olympiad-daraa.onrender.com/media/site/66_1.webp" alt="الأولمبياد العلمي السوري" onerror="this.style.display='none'">
+      <div class="title">
+        <b>مكتب الأولمبياد العلمي السوري – درعا</b>
+        <span>هيئة التميز والإبداع</span>
+      </div>
+    </div>
+    <img src="https://olympiad-daraa.onrender.com/media/site/90.webp" alt="هيئة التميز والإبداع" onerror="this.style.display='none'">
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>🏆 توزيع الطلاب على القاعات – المرحلة الأولى</h1>
+    <p>المركز الامتحاني: جامعة درعا – كلية التربية الثالثة</p>
+  </div>
+</section>
+
+<div class="wrap search-box">
+  <div class="search">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <input id="q" type="search" placeholder="ابحث بالاسم أو بالرقم الامتحاني…" autocomplete="off">
+    <button id="clear" class="hidden" type="button">مسح</button>
+  </div>
+  <p class="hint">مثال: اكتب جزءاً من الاسم مثل «محمد الخطيب» أو الرقم الامتحاني مثل 04120</p>
+</div>
+
+<main class="wrap">
+
+  <!-- نتائج البحث -->
+  <section id="v-search" class="hidden">
+    <div class="view-head"><h2 id="sr-title">نتائج البحث</h2></div>
+    <div id="sr" class="results"></div>
+  </section>
+
+  <!-- الرئيسية -->
+  <section id="v-home">
+    <div class="cards">
+      <button class="card" data-go="lists">
+        <div class="ic">📋</div>
+        <h3>القوائم</h3>
+        <p>جميع القوائم كما صدرت عن المكتب، مقسّمة حسب القاعة.</p>
+      </button>
+      <button class="card" data-go="halls">
+        <div class="ic">🏫</div>
+        <h3>الفرز حسب القاعات</h3>
+        <p>اختر القاعة لعرض أسماء الطلاب المخصصين لها.</p>
+      </button>
+      <button class="card" data-go="subjects">
+        <div class="ic">🔬</div>
+        <h3>الفرز حسب الاختصاص</h3>
+        <p>الرياضيات، الفيزياء، الكيمياء، علم الأحياء، المعلوماتية، العلوم النووية.</p>
+      </button>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="st-total">0</b><span>طالباً وطالبة</span></div>
+      <div class="stat"><b id="st-halls">0</b><span>قاعات</span></div>
+      <div class="stat"><b id="st-subj">0</b><span>اختصاصات</span></div>
+    </div>
+  </section>
+
+  <!-- القوائم -->
+  <section id="v-lists" class="hidden">
+    <div class="view-head"><button class="back" data-go="home">→ رجوع</button><h2>القوائم</h2></div>
+    <div id="lists"></div>
+  </section>
+
+  <!-- القاعات -->
+  <section id="v-halls" class="hidden">
+    <div class="view-head"><button class="back" data-go="home">→ رجوع</button><h2>الفرز حسب القاعات</h2></div>
+    <div id="hall-chips" class="chips"></div>
+    <div id="hall-out"></div>
+  </section>
+
+  <!-- الاختصاصات -->
+  <section id="v-subjects" class="hidden">
+    <div class="view-head"><button class="back" data-go="home">→ رجوع</button><h2>الفرز حسب الاختصاص</h2></div>
+    <div id="subj-chips" class="chips"></div>
+    <div id="subj-out"></div>
+  </section>
+
+</main>
+
+<footer>
+  <b>مكتب الأولمبياد العلمي السوري – درعا</b><br>
+  جميع الحقوق محفوظة © 2026 هيئة التميز والإبداع
+</footer>
+
+<script>
+const CENTER = "جامعة درعا - كلية التربية الثالثة";
+const SUBJECTS = {
+  M:{name:"الرياضيات",color:"#14206B",bg:"#E8EBF7"},
+  P:{name:"الفيزياء",color:"#8A4B00",bg:"#FFF1D6"},
+  C:{name:"الكيمياء",color:"#1F7A45",bg:"#E2F5EA"},
+  B:{name:"علم الأحياء",color:"#2B6E1E",bg:"#ECF7DF"},
+  I:{name:"المعلوماتية",color:"#6A1B9A",bg:"#F2E5FA"},
+  N:{name:"العلوم النووية",color:"#B3261E",bg:"#FDE7E6"}
+};
+const HALL_ORDER = ["القاعة (101)","القاعة (102)","القاعة (103)","القاعة (104)","القاعة (105)","المدرج"];
+
+// الصيغة: الاسم|الرقم الامتحاني|رمز الاختصاص
+const RAW = {
+"القاعة (101)":`احمد جمال الكراد|04002|M
+اسراء ناصر شحاده|04005|M
+أمين نضال العمارين|04009|M
+ايمن خالد النصرالله السعدى|04012|M
+بان مدحت الطعانى|04013|M
+بتول وسام الناصر|04014|M
+تقى محمد فلاح|04019|M
+جاد محمد العمارى|04020|M
+جمال وليد عجاج|04021|M
+جنى جمال محمود|04022|M
+حمزه ابراهيم الحريرى|04031|M
+خديجه وليد العيد|04035|M
+رضوه على ابوروميه|04041|M
+رغد احمد الجداى|04042|M
+رقيه عدنان فيصل|04044|M
+رنيم اكرم الشولى|04046|M
+ريم زكريا المسلمانى|04052|M
+ريم ياسر ابراهيم|04053|M
+ريماس محمد موسى|04054|M
+زيد عوض الجباوى|04055|M
+زينة عمار الخطيب|04057|M
+زينه قاسم بلوط|04059|M
+سلام ثابت الخطيب|04064|M
+سلسبيل نعيم ابو خشريف|04066|M
+شام خالد احمد|04068|M
+شام يوسف الموسى|04069|M
+عبد الرحمن محمد أمين زين العابدين|04074|M
+عبد المولى حسين الديات|04077|M
+عصمت رأفت الرباعى|04083|M
+على عزات الغزالى|04085|M
+عمر عبد الله الجباوى|04087|M
+غنى سامى البلخى|04093|M
+فاطمة عماد الزعبى|04095|M
+فرح حسين العمارين|04096|M
+فرح فارس الاحمد|04097|M
+كناز مروان الربابى|04100|M
+لجين شجاع الحمد|04102|M
+لمى حسين الزامل|04105|M
+لميس أيمن القدور|04106|M
+لين علاء الدين المسالمه|04112|M
+ماريا فراس الصباغ الدهنى|04114|M
+ماسه لؤى الحسن|04115|M
+ماسه يوسف الربنى|04117|M
+مؤمن محمد الزرزور|04118|M
+محمد حسين الديات|04120|M
+محمد طارق عماد المصرى|04122|M
+محمد فارس المقداد|04123|M
+محمد محمود الشتيوى|04124|M
+محمد منيب احمد مفلح|04125|M
+نهى مروان العيشات|04135|M
+نور محمد الجباوى|04136|M
+نور محمد العلوه|04137|M
+هبة منير محمد|04138|M
+هشام احمد النابلسى|04141|M
+ياسر نورس النعيمى|04145|M
+يزن محمود العبيد|04147|M
+إبراهيم خالد الجراد|04149|P
+تسنيم سامر السويدان|04159|P
+رغد عماد الفلاح|04163|P
+سندس مزيد التمر|04168|P
+شيماء يوسف الكرسوح|04171|P
+ميرا احمد السويدان|04180|P
+دانه فؤاد العبود|04197|C
+ريحان عبدالرحمن أبو خروب|04201|C
+سلاف نور الدين الحفرى|04202|C
+عائشة محمد خير الحسين|04209|C
+علا على محمد|04212|C
+محمد ماهر العمارين|04216|C
+هبة خالد الرفاعى|04223|C
+احمد فادى الجباوى|04235|B
+ارجوان باسل المريح|04236|B
+اسلام رضوان الغوثانى|04237|B
+افنان نضال خلف|04238|B
+أنس أحمد الرحال|04241|B
+ايمان زكريا المحارب|04242|B
+بتول ضياء القطيفان|04244|B
+بلقيس احمد المحاميد|04245|B
+تسنيم نضال الفالوجى|04246|B
+تقى حاتم خليل|04247|B
+تيماء عارف العيد|04248|B
+جنى يحيى حماده|04249|B
+حلا إياد على|04251|B
+حنين سمير النهار|04252|B
+ربيع محمد الرفاعى|04254|B
+رشا نعيم الطياسنه|04255|B
+رهف على الزعبى|04257|B
+زينه احمد الفلاح|04259|B
+سيلين محمد الرحال|04260|B
+شام حسن الفالوجى|04261|B
+شهد هانى الحفرى|04262|B
+صفا محمد النابلسى|04263|B
+عبدالمنعم على اعقيل|04264|B
+عمر رمزى الفروان|04265|B
+عمر محمدامين الجندى|04266|B
+عمران محمد حسين|04267|B
+غزل شادى ابوالسل|04268|B
+غنى رائد الشقنين|04269|B
+غنى ربيع العمار|04270|B
+غنى عاطف ذيب|04271|B
+فاطمه الزهراء سلطان الحريرى|04272|B
+فرح حسن المحمد|04274|B
+ليلى محمد زهير الخوالده|04276|B
+لين ثائر العواد|04278|B
+ماريا محمود ابو نبوت|04279|B
+مايا ادهم ابو العلايا|04280|B
+محمد حسين الشيخ محمد|04281|B
+منار نظام العيد|04283|B
+ميس ياسر الخطيب|04286|B
+نبيها محمد العيد|04287|B
+نور شام محمود العتمه|04289|B
+نور عاصم السحارى|04290|B
+هاجر ابراهيم الزعبى|04292|B
+احمد حسن زيدية|04226|I
+انس باسل الحاج على|04227|I
+إيلاف عبدو الرفاعى|04228|I
+ريماس فيصل الشريف|04229|I
+ريماس همام المقداد|04230|I
+سجا بلال الحسين|04231|I
+فادى محمد الحورانى|04232|I
+قاسم محمد القطفان|04233|I
+يوسف زكريا المسلمانى|04234|I
+تالا زياد الحمد|04293|N
+تالا زياد السويدانى|04294|N
+حلا محمد الجباوى|04295|N
+حمزه خليل الكومى|04296|N
+رويده عمر عباس|04297|N
+ساره معتز الزعبى|04298|N
+ليمار نضال العوده الله|04299|N`,
+"القاعة (102)":`الهام محمد الهام محمد النعسان|04007|M
+براء على سليمان عائشة|04015|M
+جنى مرعى المسالمه|04025|M
+جنى ناجى اليعقوب|04026|M
+حلا فراس المفلعانى|04030|M
+خنساء عمار الزعبى|04036|M
+ريتاج غسان ابونبوت|04050|M
+ريفان احمد المذيب|04051|M
+سليمان محمد ابو توج|04067|M
+ضياء انور الحلقى|04071|M
+عاصم محمد المحاسنه|04073|M
+علا عبد الرؤوف السعدى|04084|M
+غزل محمد العمارين|04091|M
+غى وائل الصبح|04094|M
+مايا انس المخلوف|04119|M
+هوازن عمر الكفرى|04143|M
+أحمد قاسم الزعبى|04151|P
+براءة محمود الغانم|04158|P
+توليب امجد عياش|04160|P
+لارين محمد المطاوع|04175|P
+محمد اسود الزغير|04178|P
+اسماء طارق الناصر|04187|C
+حنان محمد على الرفاعى|04194|C
+حنين موفق العميان|04195|C
+سوزان حسين غنيم|04203|C
+مرج ياسر الطعانى|04217|C
+معاذ إياد الشرع|04219|C
+ياسمين يامن العمر|04224|C
+يوسف لؤى الواكد|04225|C
+ميس منصور مفعلانى|04285|B`,
+"القاعة (103)":`آية ابراهيم المقداد|04001|M
+أحمد ماجد الشبلاق|04003|M
+الفاروق ابراهيم المقداد|04006|M
+بيسان محمد ابو جهين|04018|M
+جنى سلطان العيد|04023|M
+حلا جلال سليم|04029|M
+حمزه احمد الناصر|04032|M
+حنين شادى فلاح|04033|M
+ديمه ذهب الخليل|04037|M
+زينه رزق ابازيد|04058|M
+صبا داهود بداوه|04070|M
+عبد الله محمد المسالمه|04076|M
+عبدالله محمد ابو الحاج|04078|M
+عبدالملك باسل محمد العمار|04079|M
+عمر باسل الصفدى|04086|M
+عمر محمد المصرى|04088|M
+لجين مهند الفراج|04104|M
+مريم سامر البلخى|04129|M
+نغم رانى العمارين|04134|M
+هنادى نهاد الطعانى|04142|M
+ابراهيم محمود الغانم|04150|P
+راما معاويه السقر|04162|P
+سالى محمد ابو نقطة|04165|P
+غفران احمد الزوبانى|04172|P
+غنى عدنان شيخانى|04173|P
+ميمونه زياد المصرى|04182|P
+آيه بسام المفعلانى|04185|C
+اسيل مشعل الجهمانى|04189|C
+جنى محمود الحوارى|04191|C
+راما عاطف الناصر|04198|C
+شام فايز الشريف|04206|C
+عابد عقله الحنفى|04210|C
+مرح عمران زريقات|04218|C
+جورج ماجد المينا|04250|B
+رغد محمد الزامل|04256|B
+لجين موفق الجلماوى|04275|B
+ميس غازى الرباعى|04284|B
+ندى قاسم اجعارة|04288|B`,
+"القاعة (104)":`بشرى حامد الحاج|04016|M
+بكر محمد غنيم|04017|M
+خديجه باسم عطا|04034|M
+راما قاسم العلوه|04038|M
+رزق محمد الكراد|04040|M
+رفال محمد البكرى|04043|M
+رهف يسار الفاضل المحاميد|04049|M
+سلسبيل ابراهيم خطاب|04065|M
+ضياء محمدرشيد المقداد|04072|M
+عدى صدام حسن|04081|M
+لين أيمن الجهمانى|04110|M
+لين وليد العيفان الحريرى|04113|M
+ماسه محمد السليمان|04116|M
+محمد زكريا الشبلاق|04121|M
+هديل وسيم الخطيب|04140|M
+ونام محمد أسعد|04144|M
+اشرف خالد المستريحى|04153|P
+سيرين منهل حربيدين|04169|P
+شذى عامر الجباوى|04170|P
+لين بسام السويدان|04177|P
+مراد زهير على السعد|04179|P
+نور علاء دلوع|04183|P
+حازم عوض العقلات|04192|C
+خولة ضياء الصالح النابلسى|04196|C
+رهام محمد الرفاعى|04199|C
+شام عبدالله الخشان|04205|C
+صفا سليمان المذيب|04208|C
+غفران ايهم العيد|04214|C
+ميس فيصل السويدان|04221|C
+هاجر زكريا ابوحويه|04222|C
+امل تميم المحاميد|04239|B
+ايناس غسان الجادالله|04243|B`,
+"القاعة (105)":`احمد محمد المصرى|04004|M
+حذيفه محمد الكود|04028|M
+رحمة موسى المطلق|04039|M
+زينب قاسم ابو شاهين|04056|M
+عدنان عبد الرزاق العميان|04080|M
+عزيزة عز الدين العميان|04082|M
+ليلاس خلف المحاميد|04108|M
+ليمار قصى حسين|04109|M
+محمد وسيم الخطيب|04126|M
+مروه نضال القعيد|04128|M
+ملاك احمد العمار|04131|M
+إسلام خالد خليفة|04152|P
+ألمى معتز العيسى|04155|P
+إيمان عدنان بطحه|04156|P
+بانا محمد البرماوى|04157|P
+سندس مأمون شرف|04167|P
+يارا منير الحلقى|04184|P
+اسيل زياد العيد|04188|C
+ريان منهل العقله|04200|C
+شام سليمان العدوى|04204|C`,
+"المدرج":`أمانى احمد المفلح|04008|M
+إيلاف بسام الخطيب|04010|M
+حازم مالك الوادى|04027|M
+رنا محمد السمورى|04045|M
+رهف ماهر عتمه|04048|M
+سالى انس الخطيب|04060|M
+سجا بسام الجلماوى|04062|M
+سجى انس الخليلى|04063|M
+غنا فراس العبسى|04092|M
+لانا محمد الخليلى|04101|M
+ليان محمد ابو السل|04107|M
+لين خالد السعدى|04111|M
+مريم مأمون العيد|04130|M
+منى مرعى الطوالبه|04132|M
+هدى محمد الزعبى|04139|M
+ياسمين على عبد النبى|04146|M
+آيه محمد المذيب|04148|P
+المعتصم بالله مامون خليفه|04154|P
+رواد محمد المبارك|04161|P
+سائده محمد سليم|04164|P
+سناء اسامه خريبه|04166|P
+لمى احمد ابو حامد|04176|P
+ابراهيم خليل المطلق|04186|C
+إيمان مصعب قورماط|04190|C
+حازم نضال المصطفى|04193|C
+شيماء متعب العباس|04207|C
+غرام محمد العيد|04213|C
+ليان احمد عميص|04215|C
+معن عبدالمنعم شباط|04220|C
+ريماس احمد الخطيب|04258|B
+محمد ضياء الفروان|04282|B`
+};
+
+/* ---------- تجهيز البيانات ---------- */
+const norm = s => String(s)
+  .replace(/[\u064B-\u0652\u0640]/g,"")
+  .replace(/[أإآٱ]/g,"ا").replace(/ة/g,"ه").replace(/[ىئ]/g,"ي").replace(/ؤ/g,"و")
+  .replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d))
+  .replace(/\s+/g," ").trim();
+
+const STUDENTS = [];
+HALL_ORDER.forEach(hall=>{
+  RAW[hall].trim().split("\n").forEach((line,i)=>{
+    const [name,num,s] = line.split("|");
+    STUDENTS.push({i:i+1,name:name.trim(),num:num.trim(),s,hall,key:norm(name)});
+  });
+});
+
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tag = s => `<span class="tag" style="color:${SUBJECTS[s].color};background:${SUBJECTS[s].bg}">${SUBJECTS[s].name}</span>`;
+
+$("st-total").textContent = STUDENTS.length;
+$("st-halls").textContent = HALL_ORDER.length;
+$("st-subj").textContent = Object.keys(SUBJECTS).length;
+
+function table(rows,{showHall=true,showSubj=true}={}){
+  return `<div class="tbl-wrap"><table><thead><tr>
+    <th>م</th><th>الاسم الثلاثي</th><th>الرقم الامتحاني</th>
+    ${showSubj?"<th>الاختصاص</th>":""}<th>المركز</th>${showHall?"<th>القاعة</th>":""}
+  </tr></thead><tbody>${rows.map((r,k)=>`<tr>
+    <td class="i">${k+1}</td><td><b>${esc(r.name)}</b></td><td class="num">${r.num}</td>
+    ${showSubj?`<td>${tag(r.s)}</td>`:""}<td>${CENTER}</td>${showHall?`<td><b>${r.hall}</b></td>`:""}
+  </tr>`).join("")}</tbody></table></div>`;
+}
+
+/* ---------- القوائم ---------- */
+$("lists").innerHTML = HALL_ORDER.map((h,idx)=>{
+  const rows = STUDENTS.filter(x=>x.hall===h);
+  return `<details class="section" ${idx===0?"open":""}><summary><span>${h}</span><span class="cnt">${rows.length} طالباً</span></summary>${table(rows)}</details>`;
+}).join("");
+
+/* ---------- القاعات ---------- */
+let curHall = HALL_ORDER[0];
+function renderHalls(){
+  $("hall-chips").innerHTML = HALL_ORDER.map(h=>{
+    const n = STUDENTS.filter(x=>x.hall===h).length;
+    return `<button class="chip ${h===curHall?"on":""}" data-hall="${h}">${h}<small>(${n})</small></button>`;
+  }).join("");
+  const rows = STUDENTS.filter(x=>x.hall===curHall);
+  $("hall-out").innerHTML = `<div class="section"><details open class="section" style="margin:0;box-shadow:none"><summary><span>${curHall}</span><span class="cnt">${rows.length} طالباً</span></summary>${table(rows,{showHall:false})}</details></div>`;
+}
+$("hall-chips").addEventListener("click",e=>{const b=e.target.closest("[data-hall]");if(b){curHall=b.dataset.hall;renderHalls();}});
+
+/* ---------- الاختصاصات ---------- */
+let curSubj = "M";
+function renderSubj(){
+  $("subj-chips").innerHTML = Object.entries(SUBJECTS).map(([k,v])=>{
+    const n = STUDENTS.filter(x=>x.s===k).length;
+    return `<button class="chip ${k===curSubj?"on":""}" data-s="${k}">${v.name}<small>(${n})</small></button>`;
+  }).join("");
+  const rows = STUDENTS.filter(x=>x.s===curSubj).sort((a,b)=>a.num.localeCompare(b.num));
+  $("subj-out").innerHTML = `<div class="section"><details open class="section" style="margin:0;box-shadow:none"><summary><span>${SUBJECTS[curSubj].name}</span><span class="cnt">${rows.length} طالباً</span></summary>${table(rows,{showSubj:false})}</details></div>`;
+}
+$("subj-chips").addEventListener("click",e=>{const b=e.target.closest("[data-s]");if(b){curSubj=b.dataset.s;renderSubj();}});
+
+/* ---------- التنقل ---------- */
+const VIEWS = ["home","lists","halls","subjects"];
+function show(v){
+  if(!VIEWS.includes(v)) v="home";
+  VIEWS.forEach(x=>$("v-"+x).classList.toggle("hidden",x!==v || !!$("q").value.trim()));
+  if(v==="halls") renderHalls();
+  if(v==="subjects") renderSubj();
+}
+document.addEventListener("click",e=>{
+  const g = e.target.closest("[data-go]");
+  if(g){ location.hash = g.dataset.go==="home" ? "" : g.dataset.go; if(g.dataset.go==="home") show("home"); window.scrollTo({top:0,behavior:"smooth"}); }
+});
+window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
+
+/* ---------- البحث ---------- */
+function highlight(text,q){
+  if(!q || /^\d+$/.test(q)) return esc(text);
+  // تظليل الكلمات المطابقة بعد التطبيع
+  const words = q.split(" ");
+  return text.split(" ").map(w=>{
+    const nw = norm(w);
+    return words.some(t=>t && nw.includes(t)) ? `<mark>${esc(w)}</mark>` : esc(w);
+  }).join(" ");
+}
+function doSearch(){
+  const raw = $("q").value;
+  const q = norm(raw);
+  $("clear").classList.toggle("hidden",!raw);
+  if(!q){ $("v-search").classList.add("hidden"); show(location.hash.slice(1)); return; }
+  VIEWS.forEach(x=>$("v-"+x).classList.add("hidden"));
+  $("v-search").classList.remove("hidden");
+  let res;
+  if(/^\d+$/.test(q)){
+    res = STUDENTS.filter(x=>x.num.includes(q) || x.num.replace(/^0+/,"").startsWith(q.replace(/^0+/,"")));
+  }else{
+    const terms = q.split(" ");
+    res = STUDENTS.filter(x=>terms.every(t=>x.key.includes(t)));
+  }
+  $("sr-title").textContent = `نتائج البحث (${res.length})`;
+  $("sr").innerHTML = res.length ? res.slice(0,200).map(r=>`
+    <div class="res" style="border-inline-start-color:${SUBJECTS[r.s].color}">
+      <h4>${highlight(r.name,q)}</h4>
+      <dl>
+        <dt>الرقم الامتحاني</dt><dd class="bignum">${r.num}</dd>
+        <dt>القاعة</dt><dd>${r.hall}</dd>
+        <dt>المركز الامتحاني</dt><dd>${CENTER}</dd>
+        <dt>الاختصاص</dt><dd>${tag(r.s)}</dd>
+      </dl>
+    </div>`).join("")
+    : `<div class="empty" style="grid-column:1/-1">لم يتم العثور على نتائج. تأكد من كتابة الاسم أو الرقم الامتحاني بشكل صحيح.</div>`;
+}
+$("q").addEventListener("input",doSearch);
+$("clear").addEventListener("click",()=>{$("q").value="";doSearch();$("q").focus();});
+
+show(location.hash.slice(1));
+</script>
+</body>
+</html>
